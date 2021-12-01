@@ -804,7 +804,7 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # }
 // Include docksal settings.php when appropriate.
 if (isset($_SERVER['DOCKSAL_LOCAL'])) {
-  include __DIR__ . "/settings.docksal.php";
+  include __DIR__ . DIRECTORY_SEPARATOR . "settings.docksal.php";
 } elseif ($db_url_string = getenv('DB_URL')) {
 	$url = parse_url($db_url_string);
   $databases = [
@@ -822,4 +822,9 @@ if (isset($_SERVER['DOCKSAL_LOCAL'])) {
         ],
       ],
   ];
+}
+
+if (isset($_SERVER['HEROKU'])) {
+  $settings['config_exclude_modules'] = ['stage_file_proxy', 's3fs_file_proxy_to_s3'];
+  include $s3_settings;
 }
