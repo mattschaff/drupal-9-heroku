@@ -802,6 +802,9 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
+
+$settings['config_sync_directory'] = DRUPAL_ROOT . "/../config/default";
+
 // Include docksal settings.php when appropriate.
 if (isset($_SERVER['DOCKSAL_LOCAL'])) {
   include __DIR__ . DIRECTORY_SEPARATOR . "settings.docksal.php";
