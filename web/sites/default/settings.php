@@ -825,6 +825,5 @@ if (isset($_SERVER['DOCKSAL_LOCAL'])) {
 }
 
 if (isset($_SERVER['HEROKU'])) {
-  $settings['config_exclude_modules'] = ['stage_file_proxy', 's3fs_file_proxy_to_s3'];
-  include $s3_settings;
+  include __DIR__ . DIRECTORY_SEPARATOR . "settings.s3.php";
 }

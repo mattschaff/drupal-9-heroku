@@ -28,4 +28,4 @@ if (isset($_SERVER['HTTP_HOST'])) {
 // Workaround for permission issues with NFS shares in Vagrant.
 $settings['file_chmod_directory'] = 0777;
 $settings['file_chmod_file'] = 0666;
-$settings['config_exclude_modules'] = ['devel', 'stage_file_proxy'];
+$settings['config_exclude_modules'] = ['devel', 'stage_file_proxy', 's3fs_file_proxy_to_s3'];
