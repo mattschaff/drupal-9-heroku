@@ -39,8 +39,6 @@ install:
   - tour
   - automated_cron
   - s3fs
-  - stage_file_proxy
-  - s3fs_file_proxy_to_s3
 themes:
   - bartik
   - seven
