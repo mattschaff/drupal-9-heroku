@@ -827,6 +827,13 @@ if (isset($_SERVER['DOCKSAL_LOCAL'])) {
   ];
 }
 
-if (isset($_SERVER['HEROKU'])) {
+// Optionally override file system with Amazon S3.
+$use_s3 = getenv('USE_S3');
+$settings['use_s3'] = $use_s3 ? TRUE : FALSE;
+if ($use_s3) {
   include __DIR__ . DIRECTORY_SEPARATOR . "settings.s3.php";
+}
+
+if (getenv('ENFORCE_HTTPS')) {
+  include __DIR__ . DIRECTORY_SEPARATOR . "settings.https.php";
 }

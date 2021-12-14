@@ -28,4 +28,17 @@ if (isset($_SERVER['HTTP_HOST'])) {
 // Workaround for permission issues with NFS shares in Vagrant.
 $settings['file_chmod_directory'] = 0777;
 $settings['file_chmod_file'] = 0666;
-$settings['config_exclude_modules'] = ['devel', 'stage_file_proxy', 's3fs_file_proxy_to_s3'];
+
+$config['system.performance']['css']['preprocess'] = FALSE;
+$config['system.performance']['js']['preprocess'] = FALSE;
+
+$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
+$settings['cache']['bins']['render'] = 'cache.backend.null';
+$settings['cache']['bins']['page'] = 'cache.backend.null';
+$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
+
+$config['system.logging']['error_level'] = 'verbose';
+
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);

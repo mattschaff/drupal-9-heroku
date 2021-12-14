@@ -17,11 +17,15 @@
     "require": {
         "ext-mbstring": "*",
         "composer/installers": "^1.9",
+        "cweagans/composer-patches": "^1.7",
         "drupal/core-composer-scaffold": "^9.2",
         "drupal/core-project-message": "^9.2",
         "drupal/core-recommended": "^9.2",
         "drupal/s3fs": "3.0-beta3",
-        "drupal/s3fs_file_proxy_to_s3": "^4.0"
+        "drush/drush": "^10.6"
+    },
+    "scripts": {
+        "remote-drush": "appname=$1; shift; heroku run -a $appname ./be/vendor/bin/drush $@"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -32,6 +36,7 @@
         "sort-packages": true
     },
     "extra": {
+        "patches": {},
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"

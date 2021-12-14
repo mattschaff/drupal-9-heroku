@@ -4,7 +4,8 @@ services:
     environment:
       # Add $_ENV variable so both requests and drush know to load the correct settings.php file
       - DOCKSAL_LOCAL=true
+      - USE_S3
       - S3_ACCESS_KEY
       - S3_SECRET_KEY
       - S3_BUCKET
-      - S3_ORIGIN_HOST
+      - S3_REGION
